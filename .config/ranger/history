@@ -1,0 +1,50 @@
+cd /usr/games/
+cd /snap/bin
+cd /snap/
+cd /usr/bin
+open_with nvim
+rename ""nvim
+rename """nvim
+rename .vimrc
+rename artful backup
+mkdir 
+rename .config
+open_with feh
+rename framework
+rename princess
+search i3
+rename Program.cs_
+rename Program.cs
+q
+cd /media/removable/Sam Corless Drive
+cd Downloads/
+rename startlnp
+cd /home/lappy486/LinuxLNP-0.44.12-r02
+rename kruggsmash.txt
+rename kruggsmash_big.png
+rename XtqN1Pwl.png
+shell `
+rename kruggsmash_small.png
+find Li
+find li
+rename region1(backup no fortress)
+find Dow
+search cd
+cd /
+open_with q
+mkdir rct2
+search R
+search RCT
+search open
+cd ~/Download
+Q
+open_with 
+search rct
+rename Xtreme97 Workbench 2018.sv6
+w
+mkdir qutebrowser
+open_with vim
+cd 
+
+rename config
+delete
