@@ -1,0 +1,53 @@
+#!/bin/bash
+
+BATT=$(cat /sys/class/power_supply/BAT0/capacity)
+STATUS=$(cat /sys/class/power_supply/BAT0/status)
+
+GREAT=$(xrdb -q | grep '*color2'| awk '{print $NF}')
+GOOD=$(xrdb -q | grep '*color7'| awk '{print $NF}')
+BAD=$(xrdb -q | grep '*color1'| awk '{print $NF}')
+
+if [ "$STATUS" = "Discharging" ]; then
+	if [ $BATT -lt 10  ]; then
+              echo " $BATT%"
+              echo " $BATT%"
+	elif [ $BATT -lt 20  ]; then
+             echo " $BATT%"
+             echo " $BATT%"
+	elif [ $BATT -lt 30  ]; then
+             echo " $BATT%"
+             echo " $BATT%"
+	elif [ $BATT -lt 40  ]; then
+             echo " $BATT%"
+             echo " $BATT%"
+	elif [ $BATT -lt 50  ]; then
+             echo " $BATT%"
+             echo " $BATT%"
+	elif [ $BATT -lt 60  ]; then
+             echo " $BATT%"
+             echo " $BATT%"
+	elif [ $BATT -lt 70  ]; then
+             echo " $BATT%"
+             echo " $BATT%"
+	elif [ $BATT -lt 80  ]; then
+             echo " $BATT%"
+             echo " $BATT%"
+	elif [ $BATT -lt 90  ]; then
+             echo " $BATT%"
+             echo " $BATT%"
+        else
+             echo " $BATT%"
+             echo " $BATT%"
+        fi
+else
+      echo " $BATT"
+      echo " $BATT"
+fi
+
+if [ $BATT -ge 90 ]; then
+    echo $GREAT
+elif [ $BATT -ge 20 ]; then
+    echo $GOOD
+else
+    echo $BAD
+fi
