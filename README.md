@@ -2,15 +2,14 @@
 my test at backing up my dotfiles
 
 ```
-sudo apt install i3 i3blocks ranger neovim python3-pip imagemagick qutebrowser git libx11-dev libxft-dev libxext-dev curl
+sudo apt install libx11-dev libxft-dev libxext-dev python3-pip imagemagick curl i3 i3blocks ranger neovim feh qutebrowser git 
 sudo pip3 install pywal
-git clone https://github.com/corlesss/my-backups
-cd my-backups/st
+git clone https://github.com/corlesss/mydotfiles
+cd mydotfiles/st
 sudo make clean install
 cd ~
 wal -i .config/wallpapers/wallhaven-455682.jpg
-echo "wal -R" > ~/.xinitrc
-echo "exec i3" > ~/.xinitrc
+echo "wal -R \n exec i3" > ~/.xinitrc
 ```
 
 # manual setup
