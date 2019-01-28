@@ -2,7 +2,7 @@
 my test at backing up my dotfiles
 
 ```
-sudo apt install libx11-dev libxft-dev libxext-dev python3-pip imagemagick curl i3 i3blocks ranger neovim feh qutebrowser git 
+sudo apt install libx11-dev libxft-dev libxext-dev python3-pip imagemagick curl i3 dmenu i3blocks ranger neovim feh qutebrowser git 
 sudo pip3 install pywal
 git clone https://github.com/corlesss/mydotfiles
 cd mydotfiles/st
