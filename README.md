@@ -22,13 +22,17 @@ echo "wal -R \nexec i3" > ~/.xinitrc
 - Change /usr/bin/i3-sensible-terminal
 
 # font config
-## enable bitmap fonts
+### enable bitmap fonts
+```
 cd /etc/fonts/conf.d/
 sudo rm -rf 70-no-bitmaps.conf && sudo ln -s ../conf.avail/70-yes-bitmaps.conf .
 sudo dpkg-reconfigure fontconfig
+```
 
-## now copy font to .fonts
+### now copy font to .fonts
+```
 cd .fonts/[font]
 sudo mkfontdir
 xset fp+ ~/.fonts/[font]
 fc-cache -fv
+```
