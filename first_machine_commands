@@ -1,17 +1,32 @@
-sudo apt install i3 i3blocks ranger neovim python3-pip imagemagick qutebrowser git libx11-dev libxft-dev libext-dev curl
+sudo apt install libx11-dev libxft-dev libext-dev curl python3-pip git imagemagick zsh i3 i3blocks dmenu ranger neovim qutebrowser wireless-tools
+echo "alias backup='/usr/bin/git --git-dir=/home/lappy486/mydotfiles.git/ --work-tree=/home/lappy486'" > .zshrc
+echo "mydotfiles.git" >> .gitignore
+git clone --bare https://github.com/corlesss/my-backups
+alias backup='/usr/bin/git --git-dir=/home/lappy486/mydotfiles.git/ --work-tree=/home/lappy486'
+backup checkout
+backup config --local status.showUntrackedFiles no
+sudo cp /sbin/iwgetid /usr/local/bin
 sudo pip3 install pywal
-git clone https://github.com/corlesss/my-backups
 cd my-backups/st
 sudo make clean install
 cd ~
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-echo "wal -R" > ~/.xinitrc
-echo "exec i3" > ~/.xinitrc
+wal -i .config/wallpapers/wallhaven-455682.jpg
+echo "wal -R \nexec i3" > ~/.xinitrc
 
 ===== MANUAL COMMANDS =====
-Pull dotfiles from git (corlesss/my-backups)
 Set wallpaper
 Change /usr/bin/i3-sensible-terminal
 add this next line to .bashrc;
 alias backup='/usr/bin/git --git-dir=/home/lappy486/git-backup/ --work-tree=/home/lappy486'
+
+===== FONT CONFIG =====
+# enable bitmap fonts
+cd /etc/fonts/conf.d/
+sudo rm -rf 70-no-bitmaps.conf && sudo ln -s ../conf.avail/70-yes-bitmaps.conf .
+sudo dpkg-reconfigure fontconfig
+
+# now copy font to .fonts
+cd .fonts/[font]
+sudo mkfontdir
+xset fp+ ~/.fonts/[font]
+fc-cache -fv
