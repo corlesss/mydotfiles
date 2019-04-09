@@ -15,7 +15,7 @@ sudo pip3 install pywal
 cd st
 sudo make clean install
 cd ~
-wal -i .config/wallpapers/wallhaven-455682.jpg
+wal -i .config/wallpapers/bokeh_fence.jpg
 echo "wal -R \nexec i3" > ~/.xinitrc
 ```
 
