@@ -5,7 +5,7 @@ my test at backing up my dotfiles
 sudo apt install libx11-dev libxft-dev libext-dev curl python3-pip git imagemagick zsh i3 i3blocks dmenu ranger neovim qutebrowser wireless-tools
 echo "alias backup='/usr/bin/git --git-dir=/home/lappy486/mydotfiles.git/ --work-tree=/home/lappy486'" > .zshrc
 echo "mydotfiles.git" >> .gitignore
-git clone --bare https://github.com/corlesss/my-backups
+git clone --bare https://github.com/corlesss/mydotfiles
 alias backup='/usr/bin/git --git-dir=/home/lappy486/mydotfiles.git/ --work-tree=/home/lappy486'
 backup checkout
 backup config --local status.showUntrackedFiles no
