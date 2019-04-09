@@ -10,8 +10,9 @@ alias backup='/usr/bin/git --git-dir=/home/lappy486/mydotfiles.git/ --work-tree=
 backup checkout
 backup config --local status.showUntrackedFiles no
 sudo cp /sbin/iwgetid /usr/local/bin
+git clone https://git.suckless.org/st
 sudo pip3 install pywal
-cd my-backups/st
+cd st
 sudo make clean install
 cd ~
 wal -i .config/wallpapers/wallhaven-455682.jpg
