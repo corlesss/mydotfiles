@@ -21,6 +21,7 @@ echo "wal -R \nexec i3" > ~/.xinitrc
 
 # manual setup
 - Change /usr/bin/i3-sensible-terminal
+- run nvim :PlugInstall
 
 # font config
 ### enable bitmap fonts
