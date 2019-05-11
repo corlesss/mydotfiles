@@ -1,6 +1,8 @@
 # my-backups
 my test at backing up my dotfiles
 
+Based on: https://www.atlassian.com/git/tutorials/dotfiles
+
 ```
 sudo apt install xinit x-server-utils libx11-dev libxft-dev libxext-dev curl python3-pip git imagemagick zsh i3 i3blocks dmenu ranger neovim qutebrowser wireless-tools feh
 echo "alias backup='/usr/bin/git --git-dir=/home/$USER/mydotfiles.git/ --work-tree=/home/$USER'" > .zshrc
