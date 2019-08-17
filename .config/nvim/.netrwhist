@@ -1,4 +1,9 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =2
-let g:netrw_dirhist_1='/home/lappy486/.config'
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='/home/lappy486/repos/princess/_includes'
 let g:netrw_dirhist_2='/home/lappy486'
+let g:netrw_dirhist_3='/home/lappy486/.config'
+let g:netrw_dirhist_4='/home/lappy486/.config/nvim'
+let g:netrw_dirhist_5='/home/lappy486/.config/nvim/plugged'
+let g:netrw_dirhist_6='/home/lappy486/.config/nvim/plugged/rainbow'
+let g:netrw_dirhist_7='/home/lappy486/.config/nvim/plugged/rainbow/plugin'

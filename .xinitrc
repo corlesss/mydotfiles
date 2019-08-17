@@ -1,3 +1,3 @@
 xrdb -load .Xresources
-wal -R
 exec i3
+xset fp+ ~/.fonts/envypn-powerline/  

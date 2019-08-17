@@ -1,6 +1,6 @@
 call plug#begin()
 
-Plug 'Yggdroot/indentLine'
+Plug 'justinmk/vim-sneak'
 Plug 'alvan/vim-closetag'
 Plug 'myusuf3/numbers.vim'
 Plug 'itchyny/lightline.vim'
@@ -11,11 +11,33 @@ Plug 'manu-mannattil/vim-longlines'
 Plug 'jiangmiao/auto-pairs'
 Plug 'scrooloose/nerdtree'
 Plug 'dylanaraps/wal.vim'
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins \| call 
+    \ deoplete#custom#option({
+    \   \"max_list\": 50, 
+    \   \"smart_case\": v:true,
+    \   \"ignore_case\": v:true,
+    \ })' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'powerman/vim-plugin-autosess'
+Plug 'luochen1990/rainbow'
 
 call plug#end()
 
-"let g:OmniSharp_server_path = '/home/lappy486/.omnisharp/omnisharp-roslyn/run'
-let g:OmniSharp_proc_debug = 1
+let g:rainbow_active = 1
+
+" autosess settings
+let g:autosess_dir = '.'
+
+""""" DEOPLETE OPTIONS """""
+" let deoplete run
+let g:deoplete#enable_at_startup = 1
 
 """"" VIM-CLOSETAG OPTIONS """""
 " filenames like *.xml, *.html, *.xhtml, ...
@@ -56,6 +78,7 @@ set encoding=utf-8
 set formatoptions=tcqj
 set history=10000
 set hlsearch
+set ignorecase
 set incsearch
 set langnoremap
 set laststatus=2
@@ -64,6 +87,7 @@ set mouse=a
 set nrformats=hex
 set sessionoptions-=options
 set smarttab
+set smartcase
 set tabpagemax=50
 set tags=./tags;,tags
 set ttyfast
@@ -77,6 +101,7 @@ set wildmenu
 set noundofile
 set nobackup
 
+set updatetime=300
 set nowrap
 set colorcolumn=80
 set number relativenumber
@@ -102,7 +127,24 @@ endif
 " vim: fdm=marker:sw=2:sts=2:et
 """"""""""
 
-
+""""" Word Processor Mode """""
+func! WordProcessor()
+  " movement changes
+  map j gj
+  map k gk
+  " formatting text
+  setlocal formatoptions=1
+  setlocal noexpandtab
+  setlocal wrap
+  setlocal linebreak
+  " spelling and thesaurus
+  setlocal spell spelllang=en_us
+  set thesaurus+=/home/test/.vim/thesaurus/mthesaur.txt
+  " complete+=s makes autocompletion search the thesaurus
+  set complete+=s
+endfu
+com! WP call WordProcessor()
+""""""""""
 
 """""Split options"""""
 
@@ -110,7 +152,6 @@ set splitbelow
 set splitright
 
 "split navigations
-
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
@@ -119,9 +160,38 @@ nnoremap <C-H> <C-W><C-H>
 
 
 """""Tabs"""""
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
+set tabstop=8
+set softtabstop=2
+set shiftwidth=2
 set expandtab
 set autoindent
 """"""""""
+
+""""" Commands """""
+:command Open !xdg-open %
+tnoremap <Esc> <C-\><C-n>
+tnoremap <C-h> <C-\><C-N><C-w>h
+tnoremap <C-j> <C-\><C-N><C-w>j
+tnoremap <C-k> <C-\><C-N><C-w>k
+tnoremap <C-l> <C-\><C-N><C-w>l
+inoremap <C-h> <C-\><C-N><C-w>h
+inoremap <C-j> <C-\><C-N><C-w>j
+inoremap <C-k> <C-\><C-N><C-w>k
+inoremap <C-l> <C-\><C-N><C-w>l
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+"""""""""
+
+
+""""" Autocomplete """""
+set iskeyword+=-
+filetype plugin on
+set omnifunc=csscomplete#CompleteCSS
+autocmd Filetype css set omnifunc=csscomplete#CompleteCSS
+autocmd Filetype html set omnifunc=htmlcomplete#CompleteHTML
+
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+""""""

@@ -70,7 +70,7 @@ signal=2
 # Date Time
 #
 [time]
-command=date '+%A %B %-d %-H:%M'
+command=date '+%A %B %-d %-l:%M'
 interval=5
 
 # Generic media player support

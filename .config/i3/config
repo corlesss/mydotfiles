@@ -7,10 +7,11 @@
 
 # i3 config file (v4)
 #
-# Please see http://i3wm.org/docs/userguide.html for a complete reference!
-
+# Please see http://i3wm.org/docs/userguide.html for a complete reference!  
+exec_always wal -R --vte
 set $mod Mod1
-for_window [class="^.*"] border pixel 5
+for_window [class="^.*"] border pixel 8
+gaps inner 10
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -204,10 +205,10 @@ set_from_resource $color14  color14 #f0f0f0
 set_from_resource $color15  color15 #f0f0f0
 
 # class                 border   backgr.  text     indicator child_border
-client.focused          $color00 $color00 $color01 $color00  $color01
-client.focused_inactive $color00 $color00 $color01 $color00  $color06
+client.focused          $color00 $color00 $color01 $color03  $color03
+client.focused_inactive $color00 $color00 $color01 $color08  $color08
 client.unfocused        $color00 $color00 $color01 $color00  $color00
-client.urgent           $color00 $color00 $color01 $color00  $color03
+client.urgent           $color00 $color00 $color01 $color03  $color03
 client.placeholder      $color00 $color00 $color01 $color00  $color00
 
 client.background       $color00

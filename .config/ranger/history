@@ -1,36 +1,4 @@
-cd /usr/games/
-cd /snap/bin
-cd /snap/
-cd /usr/bin
-open_with nvim
-rename ""nvim
-rename """nvim
-rename .vimrc
-rename artful backup
-mkdir 
-rename .config
-open_with feh
-rename framework
-rename princess
-search i3
-rename Program.cs_
-rename Program.cs
-q
-cd /media/removable/Sam Corless Drive
-cd Downloads/
-rename startlnp
-cd /home/lappy486/LinuxLNP-0.44.12-r02
-rename kruggsmash.txt
-rename kruggsmash_big.png
-rename XtqN1Pwl.png
-shell `
-rename kruggsmash_small.png
-find Li
-find li
-rename region1(backup no fortress)
-find Dow
 search cd
-cd /
 open_with q
 mkdir rct2
 search R
@@ -45,6 +13,38 @@ w
 mkdir qutebrowser
 open_with vim
 cd 
-
 rename config
+mkdir .fonts
+cd /etc/
+search network
+search iwgetid
+search agnoster
+cd /home/lappy486/rct2_files/
+rename rct2
+rename del
+rename rct
+rename xx
+rename rct1
+search icu
+search libic
+cd /
+search discord
+rename .selected_editorl
+rename .git-completion.bash
+mkdir haxor
+search simple
+search clean
+mkdir 
+rename clean_edit.zsh-theme
+search delete
+rename .git
+find nv
+find autos
+wq
+! vim in
+mkdir images
+q
+
+cd ~
 delete
+rename Princess Logo.png
