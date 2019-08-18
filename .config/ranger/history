@@ -1,6 +1,3 @@
-search cd
-open_with q
-mkdir rct2
 search R
 search RCT
 search open
@@ -9,7 +6,6 @@ Q
 open_with 
 search rct
 rename Xtreme97 Workbench 2018.sv6
-w
 mkdir qutebrowser
 open_with vim
 cd 
@@ -34,7 +30,6 @@ rename .git-completion.bash
 mkdir haxor
 search simple
 search clean
-mkdir 
 rename clean_edit.zsh-theme
 search delete
 rename .git
@@ -46,5 +41,10 @@ mkdir images
 q
 
 cd ~
-delete
 rename Princess Logo.png
+mkdir 
+rename Boarding Pa.pdf
+rename Boarding Pass.pdf
+mkdir temp
+w
+delete

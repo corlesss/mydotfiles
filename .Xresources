@@ -1,7 +1,4 @@
+URxvt.font: xft:envypn:regular:12
+!URxvt.boldFont: -*-envypn-*-*-*-*-*-*-*-*-*-*-*-*
 URxvt*scrollBar: false
-*.font: -*-envypn-*-*-*-*-15-*-*-*-*-*-*-*
-URxvt.boldFont: -*-envypn-*-*-*-*-15-*-*-*-*-*-*-*
-*.cursorColor: #ffffff
-xterm*VT100.Translations: #override \
-    Ctrl Shift <Key>V:      insert-selection(CLIPBOARD) \n\
-    Ctrl Shift <Key>c:      copy-selection(CLIPBOARD)
+!*.cursorColor: #ffffff

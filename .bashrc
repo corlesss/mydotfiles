@@ -114,4 +114,5 @@ fi
 
 alias backup='/usr/bin/git --git-dir=/home/lappy486/mydotfiles.git/ --work-tree=/home/lappy486'
 
-wal -Req --vte
+wal -Req
+export EDITOR="/usr/bin/vim"
