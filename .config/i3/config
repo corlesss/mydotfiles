@@ -30,6 +30,11 @@ for_window [class="^.*"] border pixel 8
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+bindsym F6 exec brightness down
+bindsym F7 exec brightness up
+bindsym F8 exec amixer sset 'Master' 5%-
+bindsym F9 exec amixer sset 'Master' 5%+
+
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
