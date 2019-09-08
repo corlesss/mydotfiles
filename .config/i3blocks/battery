@@ -3,15 +3,14 @@
 BATT=$(cat /sys/class/power_supply/BAT0/capacity)
 STATUS=$(cat /sys/class/power_supply/BAT0/status)
 
-GREAT=$(xrdb -q | grep '*color2'| awk '{print $NF}')
-GOOD=$(xrdb -q | grep '*color7'| awk '{print $NF}')
+CHARGE=$(xrdb -q | grep '*color5'| awk '{print $NF}')
+GOOD=$(xrdb -q | grep '*color6'| awk '{print $NF}')
 BAD=$(xrdb -q | grep '*color1'| awk '{print $NF}')
 
 echo "$BATT%"
-echo "$BATT%"
 
-if [ $BATT -ge 90 ]; then
-    echo $GREAT
+if [ $STATUS == "Charging" ]; then
+    echo $CHARGE
 elif [ $BATT -ge 20 ]; then
     echo $GOOD
 else

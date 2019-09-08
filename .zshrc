@@ -99,4 +99,4 @@ alias backup='/usr/bin/git --git-dir=/home/lappy486/mydotfiles.git/ --work-tree=
 alias vimconfig='vim ~/.config/nvim/init.vim'
 alias i3config='vim ~/.config/i3/config'
 
-wal -Req
+wal -Rq

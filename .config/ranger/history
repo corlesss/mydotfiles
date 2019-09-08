@@ -1,5 +1,3 @@
-search R
-search RCT
 search open
 cd ~/Download
 Q
@@ -45,6 +43,8 @@ rename Princess Logo.png
 mkdir 
 rename Boarding Pa.pdf
 rename Boarding Pass.pdf
-mkdir temp
 w
+rename envypn7x15.original.bdf
+mkdir temp
+rename envypn7x15.bdf
 delete

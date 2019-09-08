@@ -49,7 +49,7 @@ separator=true
 # The battery instance defaults to 0.
 [battery]
 command=~/.config/i3blocks/battery
-# label=BAT
+label=bat
 # label=⚡
 #instance=1
 interval=30
@@ -60,11 +60,10 @@ interval=30
 # The second parameter overrides the mixer selection
 # See the script for details.
 [volume]
-#label=VOL
-label=
+label=vol
 instance=Master
 #instance=PCM
-interval=10
+interval=1
 signal=2
 
 # Date Time
