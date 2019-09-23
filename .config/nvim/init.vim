@@ -97,6 +97,7 @@ set wildmenu
 
 
 """"" Usability Options """""
+command Config edit ~/.config/nvim/init.vim
 " Make it so that vim doesn't make ~ or .un~ files
 set noundofile
 set nobackup

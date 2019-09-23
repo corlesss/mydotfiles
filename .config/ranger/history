@@ -1,11 +1,5 @@
-search open
-cd ~/Download
-Q
-open_with 
-search rct
 rename Xtreme97 Workbench 2018.sv6
 mkdir qutebrowser
-open_with vim
 cd 
 rename config
 mkdir .fonts
@@ -47,4 +41,10 @@ w
 rename envypn7x15.original.bdf
 mkdir temp
 rename envypn7x15.bdf
+rename linear-cpp-master
+open_with vim
+rewa
+rename wads
+open_with v
+mkdir wads
 delete
