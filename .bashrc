@@ -112,7 +112,9 @@ if ! shopt -oq posix; then
   fi
 fi
 
-alias backup='/usr/bin/git --git-dir=/home/lappy486/mydotfiles.git/ --work-tree=/home/lappy486'
+alias backup='/usr/bin/git --git-dir=/home/$USER/mydotfiles.git/ --work-tree=/home/$USER'
+alias vi='/usr/bin/nvim'
+alias vim='/usr/bin/nvim'
 
 wal -Req
 export EDITOR="/usr/bin/vim"
