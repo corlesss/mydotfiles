@@ -1,15 +1,24 @@
 call plug#begin()
 
+" Allows for selecting indentation-based text objects via {op}ai or {op}ii
+Plug 'michaeljsmith/vim-indent-object'
+" Find text by two letters, currently configed to work with <s>
 Plug 'justinmk/vim-sneak'
+" Automatically close an HTML tag
 Plug 'alvan/vim-closetag'
+" Auto switch between relative and absolute number in normal and insert mode
 Plug 'myusuf3/numbers.vim'
+" Statusline that is lightweight and uses little features
 Plug 'itchyny/lightline.vim'
+" Select surrounding objects (like `"`) used via {Operator}s{Object}
 Plug 'tpope/vim-surround'
+" Language agnostic commenting via gc{motion} or {selection}gc
 Plug 'tpope/vim-commentary'
+" Displays in realtime any text modifed by an Ex command
 Plug 'markonm/traces.vim'
-Plug 'manu-mannattil/vim-longlines'
+" Auto completes a pair (e.g. typing in a '(' will add an ) immediately after
 Plug 'jiangmiao/auto-pairs'
-Plug 'scrooloose/nerdtree'
+" Dynamic colourscheme based on the results of pywal
 Plug 'dylanaraps/wal.vim'
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins \| call 
@@ -23,14 +32,15 @@ else
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
+" Snips for vim, helps expand code form shorthand; uses deoplete
 Plug 'SirVer/ultisnips'
+" Repository for snippets, supplies snippets for ultisnip
 Plug 'honza/vim-snippets'
+" Automatically load session if vim is run without arguements
 Plug 'powerman/vim-plugin-autosess'
-Plug 'luochen1990/rainbow'
-
+" Allows for easy creation of text-based tables
+Plug 'dhruvasagar/vim-table-mode'
 call plug#end()
-
-let g:rainbow_active = 1
 
 " autosess settings
 let g:autosess_dir = '.'
@@ -97,6 +107,7 @@ set wildmenu
 
 
 """"" Usability Options """""
+"Quick command to edit init.vim
 command Config edit ~/.config/nvim/init.vim
 " Make it so that vim doesn't make ~ or .un~ files
 set noundofile
@@ -148,7 +159,6 @@ com! WP call WordProcessor()
 """"""""""
 
 """""Split options"""""
-
 set splitbelow
 set splitright
 
@@ -162,14 +172,16 @@ nnoremap <C-H> <C-W><C-H>
 
 """""Tabs"""""
 set tabstop=8
-set softtabstop=2
-set shiftwidth=2
+set softtabstop=4
+set shiftwidth=4
 set expandtab
 set autoindent
 """"""""""
 
 """"" Commands """""
-:command Open !xdg-open %
+" Open a file with user's preferred program
+command Open !xdg-open %
+" Remap <ctrl-h/j/k/l> to move between windows
 tnoremap <Esc> <C-\><C-n>
 tnoremap <C-h> <C-\><C-N><C-w>h
 tnoremap <C-j> <C-\><C-N><C-w>j

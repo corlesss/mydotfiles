@@ -9,6 +9,7 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!  
 # exec_always wal -R --vte
+exec wal -R
 set $mod Mod1
 for_window [class="^.*"] border pixel 8
 
