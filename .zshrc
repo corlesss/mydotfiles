@@ -8,7 +8,7 @@
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="clean_edit"
+ZSH_THEME="agnoster"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -95,8 +95,11 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias backup='/usr/bin/git --git-dir=/home/lappy486/mydotfiles.git/ --work-tree=/home/lappy486'
+alias backup='/usr/bin/git --git-dir=/home/$USER/mydotfiles.git/ --work-tree=/home/$USER'
 alias vimconfig='vim ~/.config/nvim/init.vim'
 alias i3config='vim ~/.config/i3/config'
+
+alias vi='/bin/nvim'
+alias vim='/bin/nvim'
 
 wal -Rq

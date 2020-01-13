@@ -7,16 +7,17 @@ Based on: https://www.atlassian.com/git/tutorials/dotfiles
 sudo apt install locale xinit x-server-utils libx11-dev libxft-dev libxext-dev curl python3-pip git imagemagick zsh i3 i3blocks dmenu ranger neovim qutebrowser wireless-tools feh rxvt-unicode-256color
 sudo cp /sbin/iwgetid /usr/local/bin
 sudo pip3 install pywal
-wal -i .config/wallpapers/bokeh_fence.jpg
 echo "wal -R \nexec i3" > ~/.xinitrc
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 chsh -s $(which zsh)
 echo "alias backup='/usr/bin/git --git-dir=/home/$USER/mydotfiles.git/ --work-tree=/home/$USER'" >> .zshrc
 echo "mydotfiles.git" >> .gitignore
 git clone --bare https://github.com/corlesss/mydotfiles
-alias backup='/usr/bin/git --git-dir=/home/lappy486/mydotfiles.git/ --work-tree=/home/lappy486'
-backup checkout
+alias backup='/usr/bin/git --git-dir=/home/$USER/mydotfiles.git/ --work-tree=/home/$USER'
+backup fetch
+backup reset --hard master
 backup config --local status.showUntrackedFiles no
+wal -i .config/wallpapers/bokeh_fence.jpg
 sudo dpkg-reconfigure locale
 ```
 

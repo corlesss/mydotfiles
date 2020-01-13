@@ -21,7 +21,6 @@ find autos
 wq
 ! vim in
 mkdir images
-q
 cd ~
 rename Princess Logo.png
 mkdir 
@@ -48,3 +47,4 @@ delete
 cd /
 open_with h
 find sdb
+q
