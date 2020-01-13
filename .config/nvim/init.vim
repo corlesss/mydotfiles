@@ -162,7 +162,7 @@ com! WP call WordProcessor()
 set splitbelow
 set splitright
 
-"split navigations
+"Move splits
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
@@ -181,16 +181,18 @@ set autoindent
 """"" Commands """""
 " Open a file with user's preferred program
 command Open !xdg-open %
-" Remap <ctrl-h/j/k/l> to move between windows
+" Remap <ctrl-h/j/k/l> to move between windows in terminal mode
 tnoremap <Esc> <C-\><C-n>
 tnoremap <C-h> <C-\><C-N><C-w>h
 tnoremap <C-j> <C-\><C-N><C-w>j
 tnoremap <C-k> <C-\><C-N><C-w>k
 tnoremap <C-l> <C-\><C-N><C-w>l
+" Move between splits in insert mode
 inoremap <C-h> <C-\><C-N><C-w>h
 inoremap <C-j> <C-\><C-N><C-w>j
 inoremap <C-k> <C-\><C-N><C-w>k
 inoremap <C-l> <C-\><C-N><C-w>l
+" Move between splits in normal mode
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
