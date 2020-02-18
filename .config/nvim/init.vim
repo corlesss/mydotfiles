@@ -368,9 +368,6 @@ set virtualedit=block " Allow blockmode to select outside of text constraints
 "" ========================================================================== ""
 
 " These lines set local settings for this file when read.
-"" vim:foldmethod=expr
-"" vim:foldlevel=0
-"" vim:foldexpr=getline(v\:lnum)=~'^""'?'>'.(matchend(getline(v\:lnum),'""*')-2)\:'='
 """ Basically uses an expression to determine the fold level of a line. A
   " pseudocode expression might be;
   " │ for (i; lines(vimrc); i++) {
@@ -385,3 +382,6 @@ set virtualedit=block " Allow blockmode to select outside of text constraints
   " Or to put it in other words; it will make determine the fold level by the
   " number of '"'s at the start of a line (with ""=0 and """=1 and so on).
   " If there are no "s then the line takes the foldlevel of the previous line
+"" vim:foldmethod=expr
+"" vim:foldlevel=0
+"" vim:foldexpr=getline(v\:lnum)=~'^""'?'>'.(matchend(getline(v\:lnum),'""*')-2)\:'='
