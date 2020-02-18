@@ -42,9 +42,9 @@ search icecr1
 open_with vim
 rename rct2.icecr1.parkobj
 mkdir WADS
-
-delete
 cd /
 open_with h
 find sdb
 q
+delete
+
