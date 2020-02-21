@@ -101,5 +101,4 @@ alias i3config='vim ~/.config/i3/config'
 
 alias vi='/bin/nvim'
 alias vim='/bin/nvim'
-
-wal -Rq
+alias calendar='nvim +"Calendar"'

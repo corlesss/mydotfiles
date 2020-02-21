@@ -9,7 +9,7 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!  
 # exec_always wal -R --vte
-exec wal -R
+# exec wal -R
 set $mod Mod1
 for_window [class="^.*"] border pixel 8
 
@@ -193,31 +193,31 @@ bindsym $mod+r mode "resize"
 # client.placeholder      $base00 $base00 $base05 $base00 $base00
 # client.background       $base07
 
-set_from_resource $color00  color0 #f0f0f0
-set_from_resource $color01  color1 #f0f0f0
-set_from_resource $color02  color2 #f0f0f0
-set_from_resource $color03  color3 #f0f0f0
-set_from_resource $color04  color4 #f0f0f0
-set_from_resource $color05  color5 #f0f0f0
-set_from_resource $color06  color6 #f0f0f0
-set_from_resource $color07  color7 #f0f0f0
-set_from_resource $color08  color8 #f0f0f0
-set_from_resource $color09  color9 #f0f0f0
-set_from_resource $color10  color10 #f0f0f0
-set_from_resource $color11  color11 #f0f0f0
-set_from_resource $color12  color12 #f0f0f0
-set_from_resource $color13  color13 #f0f0f0
-set_from_resource $color14  color14 #f0f0f0
-set_from_resource $color15  color15 #f0f0f0
+set_from_resource $color00  color0  #0a0f14
+set_from_resource $color01  color1  #c33027
+set_from_resource $color02  color2  #26a98b
+set_from_resource $color03  color3  #edb54b
+set_from_resource $color04  color4  #195465
+set_from_resource $color05  color5  #4e5165
+set_from_resource $color06  color6  #33859d
+set_from_resource $color07  color7  #98d1ce
+set_from_resource $color08  color8  #10151b
+set_from_resource $color09  color9  #d26939
+set_from_resource $color10  color10 #081f2d
+set_from_resource $color11  color11 #245361
+set_from_resource $color12  color12 #093748
+set_from_resource $color13  color13 #888ba5
+set_from_resource $color14  color14 #599caa
+set_from_resource $color15  color15 #d3ebe9
 
 # class                 border   backgr.  text     indicator child_border
-client.focused          $color00 $color00 $color01 $color03  $color03
-client.focused_inactive $color00 $color00 $color01 $color08  $color08
+client.focused          $color04 $color00 $color01 $color03  $color03
+client.focused_inactive $color00 $color00 $color01 $color07  $color07
 client.unfocused        $color00 $color00 $color01 $color00  $color00
 client.urgent           $color00 $color00 $color01 $color03  $color03
 client.placeholder      $color00 $color00 $color01 $color00  $color00
 
-client.background       $color00
+client.background       $color15
 #
 bar {
     status_command i3blocks
@@ -228,15 +228,15 @@ bar {
 
     colors {
         background $color00
-        separator  $color08
-        statusline $color08
+        separator  $color07
+        statusline $color07
 
         # State             Border   BG       Text
         focused_workspace   $color07 $color07 $color00
-        active_workspace    $color07 $color01 $color00
-        inactive_workspace  $color00 $color00 $color08
-        urgent_workspace    $color01 $color08 $color01
-        binding_mode        $color07 $color00 $color07
+        active_workspace    $color01 $color00 $color00
+        inactive_workspace  $color00 $color00 $color07
+        urgent_workspace    $color01 $color07 $color01
+        binding_mode        $color06 $color00 $color06
     }
 }
 

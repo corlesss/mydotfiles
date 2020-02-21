@@ -1,118 +1,95 @@
 " ▗▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▖
-" ▐╓──────────────────────────────────────────────────────────────────────────╖▌
-" ▐║                   ▗██▖                                                   ║▌
-" ▐║                   ████                                                   ║▌
-" ▐║                   ▝██▘                                                   ║▌
-" ▐║                                                                          ║▌
-" ▐║     ▟██▙     ▟██▙ ▟██▙ ▗▟██████▙▖▗█████▙▖   ▟██▙▄▟███▙▖     ▄▟█████▙▄    ║▌
-" ▐║     ████     ████ ████ ██████████████████▖  ███████████▖  ▗████▛▀▀▜███▖  ║▌
-" ▐║     ▐███▖   ▗███▌ ████ ████▘ ▝█████▘ ▝████▖ ████▛▘  ▝███ ▗████▘    ▝███▖ ║▌
-" ▐║     ▝███▌   ▐███▘ ████ ████   ▝████   ▝████ ████     ▝█▛ ▟███▘      ▝▀▀  ║▌
-" ▐║      ████   ████  ████ ████    ████    ████ ████         ████            ║▌
-" ▐║      ▝███▌ ▐███▘  ████ ████    ████    ████ ████         ▜███▖      ▄▄▖  ║▌
-" ▐║ ▗███▖ ▝███████▘   ████ ████    ████    ████ ████         ▝████▖   ▗████  ║▌
-" ▐║ █████  ▝█████▘    ████ ████    ████    ████ ████          ▝███████████▘  ║▌
-" ▐║ ▝███▘   ▝███▘     ▜██▛ ▜██▛    ▜██▛    ▜██▛ ▜██▛            ▝▜█████▛▀    ║▌
-" ▐║                                                                          ║▌
-" ▐╙──────────────────────────────────────────────────────────────────────────╜▌
-" ▝▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▘
+" ▐▌▗▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄  ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▖▐▌
+" ▐▌▐███████████████████    █████████████████████████████████████████████████▌▐▌
+" ▐▌▐████████████████████▄▄██████████████████████████████████████████████████▌▐▌
+" ▐▌▐█▙    ▜██████▛    ▟    █   ▘    ▝▜▛      ▝▜██   ▝     ▝▜████▀▀▘    ▝▀▜██▌▐▌
+" ▐▌▐██▙    ▜████▛    ▟█    █                   ▜█     ▄▄▄   ▜█▛    ▄▄▄▖   ▜█▌▐▌
+" ▐▌▐███▙    ▜██▛    ▟██    █    ▟██▄    ▟██▄    █    ▟███▙   ▛   ▗▟████▙   █▌▐▌
+" ▐▌▐████▙    ▜▛    ▟███    █    ████    ████    █    ████████▌   ███████████▌▐▌
+" ▐▌▐█████▙        ▟████    █    ████    ████    █    ████████▙   ▝█████▛   █▌▐▌
+" ▐▌▐▀  ▀██▙      ▟█████    █    ████    ████    █    █████████▙    ▀▀▀▘   ▟█▌▐▌
+" ▐▌▐▄  ▄███▙    ▟██████    █    ████    ████    █    ██████████▙▖       ▄███▌▐▌
+" ▐▙▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▟▌
 
 
 "" ╓───────────────────────────────────────────────────────────────────────────╖
-"" ║                                  PLUGINS                                  ║
-"" ╙───────────────────────────────────────────────────────────────────────────╜
-"""
-call plug#begin()
-"""" COMMANDS 
-    " Plugins that add commands 
-    " Auto completes a pair (e.g. typing in a '(' will add an ) immediately after
-    Plug 'jiangmiao/auto-pairs'
-    " Select surrounding objects (like `"`) used via {Operator}s{Object}
-    Plug 'tpope/vim-surround'
-    " Language agnostic commenting via gc{motion} or {selection}gc
-    Plug 'tpope/vim-commentary'
-    " Allows for selecting indentation-based text objects via {op}ai or {op}ii
-    Plug 'michaeljsmith/vim-indent-object'
-    " Find text by two letters, currently configured to work with <s>
-    Plug 'justinmk/vim-sneak'
-
-"""" AUTO FEATURES 
-    " Plugins that automatically perform actions 
-    " Automatically close an HTML tag
-    Plug 'alvan/vim-closetag'
-    " Displays in real time any text modified by an Ex command
-    Plug 'markonm/traces.vim'
-    " Auto switch between relative and absolute number in normal and insert mode
-    Plug 'myusuf3/numbers.vim'
-    " Automatically load session if Vim is run without arguments
-    Plug 'powerman/vim-plugin-autosess'
-    
-"""" AESTHETICS 
-    " Plugins that make vim look better 
-    " Statusline that is lightweight and uses little features
-    Plug 'itchyny/lightline.vim'
-    " Dynamic colour scheme based on the results of pywal
-    Plug 'dylanaraps/wal.vim'
-
-"""" TOOLS 
-    " Plugins that perform an action on command 
-    " Allows for easy creation of text-based tables
-    Plug 'dhruvasagar/vim-table-mode'
-    " Shows open buffers in a tabline
-    Plug 'ap/vim-buftabline'
-    " Minimalist autocompletion written in Vim script
-    Plug 'lifepillar/vim-mucomplete'
-    " Plugin to align text
-    Plug 'godlygeek/tabular'
-
-
-"""" LAPPY ONLY 
-    " Plugins for nvim 
-    " Snips for Vim, helps expand code form shorthand; uses deoplete
-    Plug 'SirVer/ultisnips'
-    " Repository for snippets, supplies snippets for ultisnip
-    Plug 'honza/vim-snippets'
-call plug#end()
-""
-
-"" ╓───────────────────────────────────────────────────────────────────────────╖
-"" ║            IMPORTANT VARIABLES AND COMPUTER DEPENDENT SETTINGS            ║
-"" ╙───────────────────────────────────────────────────────────────────────────╜
-""" ######################################
-  " #  IMPORTANT VARIABLES AND SETTINGS  #
-  " ######################################
-    " Variables and settings that need to be set before anything else
+"""║                      IMPORTANT VARIABLES AND SETTINGS                     ║
+    "Settings and variables that need to be set before anything else
     " Set <leader> to <,>
     let mapleader=","
 
-    let $VIMDIR=$HOME."/.config/nvim"
-    let $VIMCONFIG=$VIMDIR."/init.vim"
-
-""
-
-"" ╓───────────────────────────────────────────────────────────────────────────╖
-"" ║                              PLUGIN SETTINGS                              ║
+    if has('nvim')
+        let $VIMDIR=$HOME."/.config/nvim"
+        let $VIMCONFIG=$VIMDIR."/init.vim"
+    else
+        let $VIMDIR=$HOME."/.vim"
+        let $VIMCONFIG=$VIMDIR."/vimrc"
+    endif
 "" ╙───────────────────────────────────────────────────────────────────────────╜
-""" PLUGIN SETTINGS 
-    " Settings for plugins 
-    " autosess settings
-    let g:autosess_dir = $VIMDIR.'/autosess'
-    " autopairs setting
-    map <leader>p :<C-U>call AutoPairsToggle()<CR>
+"" ╓───────────────────────────────────────────────────────────────────────────╖
+"""║                                  PLUG.VIM                                 ║
+    "Plugin loading and management
+    call plug#begin()
+"""" AESTHETICS 
+    Plug 'itchyny/lightline.vim'           "Lightweight statusbar
+    Plug 'noahfrederick/vim-noctu'         "Terminal color based colorscheme
+"""" AUTO FEATURES
+    Plug 'jiangmiao/auto-pairs'            "Auto type matching pairs (e.g. '[')
+    Plug 'powerman/vim-plugin-autosess'   "Auto save and auto load session
+    Plug 'alvan/vim-closetag'              "Automatically close HTML tags
+    Plug 'myusuf3/numbers.vim'             "Auto swap in & out of relativenumber
+    " Disabled due to a large number of calls that caused scrolling to hitch
+    Plug 'markonm/traces.vim'              "Highlights text modified by commands
+"""" COMMANDS
+    Plug 'tpope/vim-commentary'            "Language agnostic commenting
+    Plug 'michaeljsmith/vim-indent-object' "Select indendation-based text object
+    Plug 'terryma/vim-expand-region'       "Repeat command, expand object region
+    Plug 'justinmk/vim-sneak'              "Find text by two letters
+    Plug 'tpope/vim-surround'              "Surround text objects with chars
+"""" SYNTAX
+    Plug 'skammer/vim-css-color'           "Provides inline color preview in CSS
+    Plug 'hail2u/vim-css3-syntax'          "Provides CSS3 syntax
+"""" TOOLS 
+    Plug 'ap/vim-buftabline'               "Shows open buffers in a tabline
+    "Plug 'ctrlpvim/ctrlp.vim'             "Search buffers, files, mru, and tags
+    Plug 'itchyny/calendar.vim'            "Calendar app with gCal support
+    Plug 'tpope/vim-fugitive'              "Git Wrapper
+    Plug 'junegunn/goyo.vim'               "Distraction-free writing
+    Plug 'junegunn/limelight.vim'          "Highlight current textblock
+    Plug 'tommcdo/vim-lion'                "Keystroke-based alignment
+    Plug 'vim-scripts/mru.vim'             "Browse most recently used files
+    Plug 'lifepillar/vim-mucomplete'       "Minimalist vimscript autocompletion
+    Plug 'dhruvasagar/vim-table-mode'      "Easy creation of text-based tables
+    Plug 'godlygeek/tabular'               "Plug in to align text
+    Plug 'maxbrunsfeld/vim-yankstack'      "Let ya see old yanks
+"""" LAPPY ONLY
+    if has('nvim')
+        Plug 'SirVer/ultisnips'            "Snippetes, expand code via shorthand
+        Plug 'honza/vim-snippets'          "Repository for snippets
+    endif
+"""" Load matchit.vim, if a newer version isn't already installed.
+    call plug#end()
+    " matchit.vim is a command used to let 'if','else','end' be considered as
+    " points to jump between when using <%>
+    " Neovim includes matchit.vim as a regular plug-in.
+    if !exists("g:loaded_matchit") && findfile("plugin/matchit.vim", &runtimepath) ==# ""
+      runtime! macros/matchit.vim
+    endif
+"" ╙───────────────────────────────────────────────────────────────────────────╜
+"" ╓───────────────────────────────────────────────────────────────────────────╖
+"""║                              PLUGIN SETTINGS                              ║
+    "Settings for the plugins
+    " Map ,p to toggle autopairs
+    " Turns out <Alt-p> toggles autopairs
+    " map <leader>p :<C-U>call AutoPairsToggle()<CR>
 
+    let g:autosess_dir = $VIMDIR.'/autosess' "Autosess directory
+    let g:lightline = {'colorscheme': '16color'}
 """" BUFTABLINE OPTIONS  
-    " Settings for buftabline 
-    " Set Buftabline to only show when there is at least two buffers
-    let g:buftabline_show = 1
-
-    " Show buffer numbers in tabs
-    let g:buftabline_numbers = 2
-    
-    " Show whether the buffer is modified
-    let g:buftabline_indicators = 1
-
-    " Create dividers between buffers
-    let g:buftabline_separators = "│"
+    let g:buftabline_show=1         "Only show when there are at least two buffers
+    let g:buftabline_numbers=2      "Show buffer numbers in tabs
+    let g:buftabline_indicators=1   "Show whether the buffer is modified
+    let g:buftabline_separators='│' "Create dividers between buffers
     
     " Commands to swap between buffers 
     nmap 1<leader> <Plug>BufTabLine.Go(1)
@@ -125,97 +102,88 @@ call plug#end()
     nmap 8<leader> <Plug>BufTabLine.Go(8)
     nmap 9<leader> <Plug>BufTabLine.Go(9)
     nmap 0<leader> <Plug>BufTabLine.Go(10)
+"""" CALENDAR OPTIONS
+    "Add credentials to plugin
+    source ~/.cache/calendar.vim/credentials.vim 
+
+    " Select calendar views
+    let g:calendar_views=['year', 'month', 'week', 'day_3', 'day', 'agenda', 'clock']
+    let g:calendar_google_calendar = 1    "Enable access to google calendar
+    let g:calendar_google_task = 1        "Enable access to google tasks
+    let g:calendar_task = 1               "Automatically show task list
+    let g:calendar_date_full_month_name=1 "Months are written in full rather #'s
+    let g:calendar_clock_12hour=1         "Show time in 12-hour format
 """" CLOSETAG OPTIONS 
-    " settings for closetag 
-    " filenames like *.xml, *.html, *.xhtml, ...
-    " These are the file extensions where this plugin is enabled.
-    let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
+    let g:closetag_filenames = '*.html,*.xhtml,*.phtml' "Filenames that use tags
+    let g:closetag_xhtml_filenames = '*.xhtml,*.jsx' "Files with non-closing tag
+    let g:closetag_filetypes = 'html,xhtml,phtml' "Filetypes that use the plugin
+    let g:closetag_xhtml_filetypes = 'xhtml,jsx' "Non-closing tag filetypes
+    let g:closetag_emptyTags_caseSensitive = 1 "Makes tagclosing case-sensitive
+    let g:closetag_shortcut = '>' " Shortcut for closing tags, default is '>'
+    let g:closetag_close_shortcut = '<leader>>' " Add > at without closing tag
+"""" LIMELIGHT OPTIONS
+    let g:limelight_conceal_ctermfg='darkgrey'
+"""" GOYO OPTIONS
+    function! s:goyo_enter()
+        set nonumber norelativenumber
+        NumbersDisable
+        Limelight
+        " set scrolloff=999
+        " let g:enable_numbers=0
+    endfunction
 
-    " filenames like *.xml, *.xhtml, ...
-    " This will make the list of non-closing tags self-closing in the specified files.
-    let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
+    function! s:goyo_leave()
+        set number relativenumber
+        NumbersEnable
+        Limelight!
+        " set scrolloff=7
+        " let g:enable_numbers=1
+    endfunction
 
-    " filetypes like xml, html, xhtml, ...
-    " These are the file types where this plugin is enabled.
-    let g:closetag_filetypes = 'html,xhtml,phtml'
-
-    " filetypes like xml, xhtml, ...
-    " This will make the list of non-closing tags self-closing in the specified files.
-    let g:closetag_xhtml_filetypes = 'xhtml,jsx'
-
-    " integer value [0|1]
-    " This will make the list of non-closing tags case-sensitive (e.g. `<Link>` will be closed while `<link>` won't.)
-    let g:closetag_emptyTags_caseSensitive = 1
-
-    " Shortcut for closing tags, default is '>'
-    let g:closetag_shortcut = '>'
-
-    " Add > at current position without closing the current tag, default is ''
-    let g:closetag_close_shortcut = '<leader>>'
-"""" ULTISNIPS SETTINGS 
-    let g:UltisnipsExpandTrigger = "<F5>"       " Do not use <tab>
-    let g:UltisnipsJumpForwardTrigger = "<C-N>" " Do not use <c-j>
-
+    autocmd! User GoyoEnter nested call <SID>goyo_enter()
+    autocmd! User GoyoLeave nested call <SID>goyo_leave()
 """" MUCOMPLETE OPTIONS  
-    " Settings for mucomplete 
-    " Mandatory options; set completion menu to open up when there is only one
-    " option and don't insert until user (mucomplete) selects an option
-    set completeopt+=menuone
-    set completeopt+=noinsert
-    set shortmess+=c " Turn off completion messages
+    " These three settings are mandatory
+    set completeopt+=menuone  "Show menu when there is only one suggestion
+    set completeopt+=noselect "Don't insert until user selects an option
+    set shortmess+=c          "Turn off completion messages
     
-    " Start plugin at startup
-    let g:mucomplete#enable_auto_at_startup = 1
-    
-    " Completion delay to prevent overzealousness
-    " let g:mucomplete#completion_delay = 1
+    let g:mucomplete#enable_auto_at_startup = 1 "Start plugin at startup
+    "let g:mucomplete#completion_delay = 1      "Completion delay
 
     " Remapping because of split navigation collision
     imap <c-p> <plug>(MUcompleteCycFwd)
     imap <c-n> <plug>(MUcompleteCycBwd)
-    " Remapping because of Ultisnips collision
-    imap <tab> <plug>(MUcompleteFwd)
-    imap <s-tab> <plug>(MUcompleteBwd)
-""
-
-"" ╓───────────────────────────────────────────────────────────────────────────╖
-"" ║                                 NVIM ONLY                                 ║
+"""" NUMBERS 
+    let g:numbers_exclude = ['goyo_pad']
+"""" ULTISNIPS SETTINGS 
+    let g:UltiSnipsExpandTrigger = "<F5>"       " Do not use <tab>
+    let g:UltiSnipsJumpForwardTrigger = "<C-N>" " Do not use <c-j>
+"""" YANKSTACK SETTINGS
+    " Set P to cycle through old pastes
+    nmap P <Plug>yankstack_substitute_older_paste
 "" ╙───────────────────────────────────────────────────────────────────────────╜
-""" NVIM ONLY 
-" Settings exclusively for nvim 
-" Load matchit.vim, if a newer version isn't already installed.
-" matchit.vim is a command used to let 'if','else','end' be considered as
-" points to jump between when using <%>
-" Neovim includes matchit.vim as a regular plug-in.
-if !exists("g:loaded_matchit") && findfile("plugin/matchit.vim", &runtimepath) ==# ""
-  runtime! macros/matchit.vim
-endif
-
-""
-
 "" ╓───────────────────────────────────────────────────────────────────────────╖
-"" ║                  BASED ON NVIM-DEFAULTS AND VIM-SENSIBLE                  ║
-"" ╙───────────────────────────────────────────────────────────────────────────╜
-""" NVIM-DEFAULTS & VIM SENSIBLE 
-" Settings based on nvim defaults and vim sensible
-filetype plugin on " Read plugin file for filetype
-filetype indent on " Read indent file for filetype
-syntax enable " Enable Syntax
+"""║                  BASED ON NVIM-DEFAULTS AND VIM-SENSIBLE                  ║
+    "Settings based on nvim defaults and vim sensible
+    filetype plugin on "Read plugin file for filetype
+    filetype indent on "Read indent file for filetype
+    syntax enable      "Enable Syntax
 
-set autoread "If file has been changed outside of vim, reread file
-set complete-=i "Autocomplete shouldn't scan included files 
-set display=lastline "Display @@@ when a line can't fit on display 
-set history=500 "Vim will only save last 500 commands
-set laststatus=2 "Always show status line
-set listchars=tab:>\ ,trail:-,nbsp:+ "Characters to use for :list command
-set mouse=a "Mouse support in all modes
-set sessionoptions-=options "Do not save local settings when making a session
-set tabpagemax=50 "Max number of tab pages to be opened
-set tags=./tags;,tags "Filenames to be used for tags
-set ttyfast "Faster drawing of screen
-set viminfo+=! "Retain vim info but not settings with lowercases
-set wildmenu "Commands show autocomplete and allow tab to complete
+    set autoread                "Reread if file has been modified outside of vim
+    set complete-=i             "Autocomplete shouldn't scan included files (?)
+    set display=lastline        "Display @@@ when a line can't fit on display
+    set history=500             "Vim will only save last 500 commands
+    set laststatus=2            "Always show status line
+    set mouse=a                 "Mouse support in all modes
+    set sessionoptions-=options "Don't save local settings when making a session
+    set tabpagemax=50           "Max number of tab pages to be opened
+    set tags=./tags;,tags       "Filenames to be used for tags
+    set ttyfast                 "Faster drawing of screen
+    set viminfo+=!              "Save vim info but not settings with lowercases
+    set wildmenu                "Commands show a menu and allow tab completion
 
+    set listchars=tab:>\ ,trail:-,nbsp:+ "Characters to use for :list command
 """" INDENTATION & FORMATTING 
     " Settings regarding indentation and formatting of text
     set autoindent "Automatic copy of indents from previous line
@@ -228,54 +196,50 @@ set wildmenu "Commands show autocomplete and allow tab to complete
     set formatoptions+=n "Automatically format numbered lists
     set nrformats=hex "Use base-16 when adding or subtracting an 0x with <C-A/X>
     set smarttab "Automatically insert spaces instead of tabs at start of line
-
 """" SEARCH 
     " Settings affecting searching2
     set hlsearch "Highlight searched terms
     set ignorecase "Ignores case when searching
     set incsearch "Update screen to highlight matches when typing in a search
     set smartcase "Ignores case when searching, unless using an uppercase
-
-""
-
-"" ╓───────────────────────────────────────────────────────────────────────────╖
-"" ║                                  COMMANDS                                 ║
 "" ╙───────────────────────────────────────────────────────────────────────────╜
-""" COMMANDS 
-" Custom commands and keybindings 
-" Use ,<space> to remove search highlighting
-nnoremap <leader><space> :nohlsearch<CR>
-" Use ,c to show a colored line on the 80th column
-nnoremap <leader>c :execute "set colorcolumn=" . (&colorcolumn == "" ? "80" : "")<CR>
-" Use <space> to fold and unfold text
-nnoremap <space> za
+"" ╓───────────────────────────────────────────────────────────────────────────╖
+"""║                                  COMMANDS                                 ║
+    "Custom commands and keybindings                                    #COMMANDS
 
-"Use <C-H/J/K/L> to move to associated split in normal mode
-nnoremap <C-H> <C-W><C-H> 
-nnoremap <C-J> <C-W><C-J> 
-nnoremap <C-K> <C-W><C-K> 
-nnoremap <C-L> <C-W><C-L> 
-" Same as above but for insert mode
-inoremap <C-h> <C-\><C-N><C-w>h
-inoremap <C-j> <C-\><C-N><C-w>j
-inoremap <C-k> <C-\><C-N><C-w>k
-inoremap <C-l> <C-\><C-N><C-w>l
-" Terminal mode
-tnoremap <Esc> <C-\><C-n>
-tnoremap <C-h> <C-\><C-N><C-w>h
-tnoremap <C-j> <C-\><C-N><C-w>j
-tnoremap <C-k> <C-\><C-N><C-w>k
-tnoremap <C-l> <C-\><C-N><C-w>l
+    " Use ,<space> to remove search highlighting
+    nnoremap <leader><space> :nohlsearch<CR>
+    " Use ,c to show a colored line on the 80th column
+    nnoremap <leader>c :<C-U>execute "set colorcolumn=".(&colorcolumn == "" ? "81" : "")."<bar>hi Colorcolumn ctermbg=darkgrey"<CR><CR>
+    " Use <space> to fold and unfold text
+    nnoremap <space> za
 
-"use :W to overcome permission errors
-command! W execute 'w !sudo tee % > /dev/null' <bar> edit! 
+    "Use <C-H/J/K/L> to move to associated split in normal mode
+    nnoremap <C-H> <C-W><C-H> 
+    nnoremap <C-J> <C-W><C-J> 
+    nnoremap <C-K> <C-W><C-K> 
+    nnoremap <C-L> <C-W><C-L> 
+    " Same as above but for insert mode
+    inoremap <C-h> <C-\><C-N><C-w>h
+    inoremap <C-j> <C-\><C-N><C-w>j
+    inoremap <C-k> <C-\><C-N><C-w>k
+    inoremap <C-l> <C-\><C-N><C-w>l
+    " Terminal mode
+    tnoremap <Esc> <C-\><C-n>
+    tnoremap <C-h> <C-\><C-N><C-w>h
+    tnoremap <C-j> <C-\><C-N><C-w>j
+    tnoremap <C-k> <C-\><C-N><C-w>k
+    tnoremap <C-l> <C-\><C-N><C-w>l
 
-"Command to edit init.vim
-command! Config edit $VIMCONFIG
-"Command to reload init.vim
-command! Source source $VIMCONFIG
-"Open a file with user's preferred program
-command! Open !xdg-open % 
+    "use :W to overcome permission errors
+    command! W execute 'w !sudo tee % > /dev/null' <bar> edit! 
+
+    "Command to edit init.vim
+    command! Config edit $VIMCONFIG
+    "Command to reload init.vim
+    command! Source source $VIMCONFIG
+    "Open a file with user's preferred program
+    command! Open !xdg-open % 
 """" BUFFER COMMANDS 
     " Commands involving buffers 
     
@@ -289,7 +253,6 @@ command! Open !xdg-open %
     map <leader>h :bprevious<cr>
     " Use ,, to swap between buffers
     nnoremap <leader><leader> :<C-U>execute "b" . (v:count == 0 ? "#" : "v:count")<CR>
-
 """" WORD PROCESSOR MODE 
     " Command to let vim act more like a wordprocessor 
     func! WordProcessor()
@@ -327,90 +290,92 @@ command! Open !xdg-open %
         set wrap<
     endfu
     com! NWP call NoWordProcessor()
+"" ╙───────────────────────────────────────────────────────────────────────────╜
+"" ╓───────────────────────────────────────────────────────────────────────────╖
+"""║                                    TABS                                   ║
+   "Settings that affect indentation and tabs                              #TABS
 
-""
+    "set autoindent   "Automatically copy indentation from previous line
+    "set smarttab     "Insert spaces instead of tabs at start of line
+    set tabstop=4     "The visual width of a tab (but doesn't insert spaces!)
+    set softtabstop=4 "How many spaces Vim treats like a tab
+    set shiftwidth=4  "How many spaces Vim uses when autoindenting
+    set smartindent   "Automatically indents, when contextually appropriate
+    set expandtab     "Insert spaces instead of tabs
+"" ╙───────────────────────────────────────────────────────────────────────────╜
+"" ╓───────────────────────────────────────────────────────────────────────────╖
+"""║                             FILETYPE SETTINGS                             ║
+   "Settings for specific filetypes                                    #FILETYPES
+    " Add CSS autocompletion when opening a css file
+    autocmd Filetype css set omnifunc=csscomplete#CompleteCSS
+    " Add html autocompletion when opening a html file
+    autocmd Filetype html set omnifunc=htmlcomplete#CompleteHTML
+"" ╙───────────────────────────────────────────────────────────────────────────╜
+"" ╓───────────────────────────────────────────────────────────────────────────╖
+"""║                                   MISC.                                   ║
+" Settings that don't fit other categories                                #MISC
+
+    "set colorcolumn=81        "Create a colored line at the 81st column
+    set lazyredraw             "Don't redraw screen during macros
+    set matchtime=5            "Highlighting blinking with match and the rate
+    set modelineexpr           "Allow end-of-file settings
+    set nowrap                 "Don't wrap lines
+    "set number relativenumber "Show linenumbers; and relative linenumbers
+    "set ruler                 "Show cursor line and column number and file %
+    set scrolloff=7            "How many lines between cursor and screen edge 
+    set sidescrolloff=5        "How many columns between cursor and screen edge
+    set showmatch              "highlight matching bracket while hovering
+    set splitbelow             "Place split below the current window
+    set splitright             "Place split right of the current window
+    "set updatetime=300        "Milliseconds of idling before swap is written
+    set virtualedit=block      "Allow v-block to select outside text constraints
+
+    "Set the undodir for writing undo file
+    exec "set undodir=".$VIMDIR."/undodir"
+    set undofile               "Create a file with a history of undos
+    set nobackup               "Don't save a backup file
+    set writebackup            "Only creates backup for file when writing, deletes after write
+    colorscheme noctu          "Use a colorscheme based on the terminal colors
+
+    "Use system clipboard if possible; if not use '*' register
+    if has('unnamedplus') 
+        set clipboard=unnamedplus
+    else
+        set clipboard=unnamed
+    endif
+
+"" ╙───────────────────────────────────────────────────────────────────────────╜
 
 "" ╓───────────────────────────────────────────────────────────────────────────╖
-"" ║                                     x                                     ║
+"""║                           LOCAL VIMRC SETTTINGS                           ║
+    " These lines set local settings for this file when read.
+"""" Defines how folds are handled
+    function! VimFoldText()
+        let s:info = '('.string(v:foldend-v:foldstart).')'
+        if v:foldlevel == 1
+            let s:line = '   '.getline(v:foldstart)[3:]
+        else
+            let s:line = '   ║ '.getline(v:foldstart)[5:].repeat(' ', (79 - strwidth(getline(v:foldstart))) ).'║'
+        endif
+
+        return s:line[:strwidth(s:line)-len(s:info)].s:info.'║'
+    endfunction
+"""" Fold Expression explanation
+    " Basically uses an expression to determine the fold level of a line. A
+    " pseudocode expression might be;
+    " │ for (i; lines(vimrc); i++) {
+    " │     line = vimrc[i]
+    " │     if line.regex(^"") {
+    " │         return ( index(line.regex(""*)) - 2 )
+    " │     }
+    " │     else {
+    " │         return vimrc[i-1].foldlevel()
+    " │     }
+    " │ }
+    " Or to put it in other words; it will make determine the fold level by the
+    " number of '"'s at the start of a line (with ""=0 and """=1 and so on).
+    " If there are no "s then the line takes the foldlevel of the previous line
 "" ╙───────────────────────────────────────────────────────────────────────────╜
-""" TABS 
-" Settings that affect indentation and tabs 
-"set autoindent
-"set smarttab "Automatically insert spaces instead of tabs at start of line
-set tabstop=4 "The visual width of a tab (but doesn't insert spaces!)
-set softtabstop=4 "How many spaces Vim treats like a tab
-set shiftwidth=4 "How many spaces Vim uses when autoindenting
-set smartindent "Automatically indents, but mostly when contextually appropriate
-set expandtab "Insert spaces instead of tabs
-
-""
-
-"" ╓───────────────────────────────────────────────────────────────────────────╖
-"" ║                                     x                                     ║
-"" ╙───────────────────────────────────────────────────────────────────────────╜
-""" FILETYPE SETTINGS  
-" OPTIONS FOR SPECIFIC FILETYPES 
-autocmd Filetype css set omnifunc=csscomplete#CompleteCSS
-autocmd Filetype html set omnifunc=htmlcomplete#CompleteHTML
-""
-
-"" ╓───────────────────────────────────────────────────────────────────────────╖
-"" ║                                     x                                     ║
-"" ╙───────────────────────────────────────────────────────────────────────────╜
-""" MISC. OPTIONS 
-" Options that don't fit other categories 
-"Make it so that vim doesn't make ~ or .un~ files
-set noundofile 
-set nobackup
-
-set writebackup "Only creates backup for file when writing, deletes after write
-
-if has('unnamedplus') "Use system clipboard if possible; if not use '*' register
-    "
-    set clipboard=unnamedplus
-else
-    set clipboard=unnamed
-    "
-endif
-
-exec "set undodir=".$VIMDIR."/undodir"
-set undofile
-
-"set colorcolumn=81 "Create a colored line at the 81st column
-set lazyredraw "Don't redraw screen during macros
-set matchtime=5 "blink highlighting match and rate
-set modelineexpr " Allow following lines to be read
-set nowrap "Don't wrap lines
-"set number relativenumber "Show linenumbers; in normal mode show relative #'s
-"set ruler "Show line and column number of cursor and % of total document
-set scrolloff=7 "Set how many lines buffer between cursor and end of screen
-set sidescrolloff=5 "How many columns between cursor and side of screen
-set showmatch "highlight matching bracket when hovering
-set splitbelow "Place a vertical split below the current window
-set splitright "Place a horizontal split right of the current window
-"set updatetime=300 "How many milliseconds of idling before swap file is written
-set virtualedit=block " Allow blockmode to select outside of text constraints
-
-""
-
-"" ╓───────────────────────────────────────────────────────────────────────────╖
-"" ║                                     x                                     ║
-"" ╙───────────────────────────────────────────────────────────────────────────╜
-" These lines set local settings for this file when read.
-""" Basically uses an expression to determine the fold level of a line. A
-  " pseudocode expression might be;
-  " │ for (i; lines(vimrc); i++) {
-  " │     line = vimrc[i]
-  " │     if line.regex(^"") {
-  " │         return ( index(line.regex(""*)) - 2 )
-  " │     }
-  " │     else {
-  " │         return vimrc[i-1].foldlevel()
-  " │     }
-  " │ }
-  " Or to put it in other words; it will make determine the fold level by the
-  " number of '"'s at the start of a line (with ""=0 and """=1 and so on).
-  " If there are no "s then the line takes the foldlevel of the previous line
 "" vim:foldmethod=expr
 "" vim:foldlevel=0
 "" vim:foldexpr=getline(v\:lnum)=~'^""'?'>'.(matchend(getline(v\:lnum),'""*')-2)\:'='
