@@ -1,6 +1,3 @@
-search discord
-rename .selected_editorl
-rename .git-completion.bash
 mkdir haxor
 search simple
 search clean
@@ -47,4 +44,7 @@ cd /
 cd !
 cd ~
 Q
+mkdir vimwiki
 delete
+search todo
+vim

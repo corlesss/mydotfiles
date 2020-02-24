@@ -10,13 +10,12 @@
 " ▐▌▐▀  ▀██▙      ▟█████    █    ████    ████    █    █████████▙    ▀▀▀▘   ▟█▌▐▌
 " ▐▌▐▄  ▄███▙    ▟██████    █    ████    ████    █    ██████████▙▖       ▄███▌▐▌
 " ▐▙▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▟▌
-
-
 "" ╓───────────────────────────────────────────────────────────────────────────╖
 """║                      IMPORTANT VARIABLES AND SETTINGS                     ║
     "Settings and variables that need to be set before anything else
     " Set <leader> to <,>
     let mapleader=","
+    let maplocalleader=","
 
     if has('nvim')
         let $VIMDIR=$HOME."/.config/nvim"
@@ -44,11 +43,11 @@
     Plug 'tpope/vim-commentary'            "Language agnostic commenting
     Plug 'michaeljsmith/vim-indent-object' "Select indendation-based text object
     Plug 'terryma/vim-expand-region'       "Repeat command, expand object region
-    Plug 'justinmk/vim-sneak'              "Find text by two letters
     Plug 'tpope/vim-surround'              "Surround text objects with chars
 """" SYNTAX
     Plug 'skammer/vim-css-color'           "Provides inline color preview in CSS
     Plug 'hail2u/vim-css3-syntax'          "Provides CSS3 syntax
+    Plug 'dbeniamine/todo.txt-vim'         "Todo.txt syntax and features
 """" TOOLS 
     Plug 'ap/vim-buftabline'               "Shows open buffers in a tabline
     "Plug 'ctrlpvim/ctrlp.vim'             "Search buffers, files, mru, and tags
@@ -61,12 +60,15 @@
     Plug 'lifepillar/vim-mucomplete'       "Minimalist vimscript autocompletion
     Plug 'dhruvasagar/vim-table-mode'      "Easy creation of text-based tables
     Plug 'godlygeek/tabular'               "Plug in to align text
+    Plug 'vimwiki/vimwiki'                 "Personal wiki in vim ,w
     Plug 'maxbrunsfeld/vim-yankstack'      "Let ya see old yanks
 """" LAPPY ONLY
     if has('nvim')
         Plug 'SirVer/ultisnips'            "Snippetes, expand code via shorthand
         Plug 'honza/vim-snippets'          "Repository for snippets
+        Plug 'lambdalisue/suda.vim'        "Provides sudo functionality
     endif
+    Plug 'justinmk/vim-sneak'              "Find text by two letters
 """" Load matchit.vim, if a newer version isn't already installed.
     call plug#end()
     " matchit.vim is a command used to let 'if','else','end' be considered as
@@ -84,7 +86,7 @@
     " map <leader>p :<C-U>call AutoPairsToggle()<CR>
 
     let g:autosess_dir = $VIMDIR.'/autosess' "Autosess directory
-    let g:lightline = {'colorscheme': '16color'}
+    let g:lightline = {'colorscheme': 'default'}
 """" BUFTABLINE OPTIONS  
     let g:buftabline_show=1         "Only show when there are at least two buffers
     let g:buftabline_numbers=2      "Show buffer numbers in tabs
@@ -125,19 +127,16 @@
     let g:limelight_conceal_ctermfg='darkgrey'
 """" GOYO OPTIONS
     function! s:goyo_enter()
-        set nonumber norelativenumber
-        NumbersDisable
         Limelight
-        " set scrolloff=999
-        " let g:enable_numbers=0
+        set showtabline=0
+        set scrolloff=999
+        mode
     endfunction
 
     function! s:goyo_leave()
-        set number relativenumber
-        NumbersEnable
+        :call buftabline#update(0)
         Limelight!
-        " set scrolloff=7
-        " let g:enable_numbers=1
+        set scrolloff=7
     endfunction
 
     autocmd! User GoyoEnter nested call <SID>goyo_enter()
@@ -159,16 +158,37 @@
 """" ULTISNIPS SETTINGS 
     let g:UltiSnipsExpandTrigger = "<F5>"       " Do not use <tab>
     let g:UltiSnipsJumpForwardTrigger = "<C-N>" " Do not use <c-j>
+"""" VIMWIKI SETTINGS
+    let g:vimwiki_list = [{'path': '~/drive/vimwiki', 
+                         \ 'path_html': '~/drive/vimwiki/html',
+                         \ 'ext': '.md'}]
+    "Custom linkhandler
+    function! VimwikiLinkHandler(link)
+        let link = a:link
+        if link =~# '^vim:'
+            let link = link[4:]
+            execute link
+            return 1
+        elseif link=~# '^vfile:'
+            let link = link[1:]
+            let link_infos = vimwiki#base#resolve_link(link)
+            execute 'edit '.fnameescape(link_infos.filename)
+            return 1
+        else
+            return 0
+        endif
+    endfunction
+    
 """" YANKSTACK SETTINGS
     " Set P to cycle through old pastes
-    nmap P <Plug>yankstack_substitute_older_paste
+    nmap <C-p> <Plug>yankstack_substitute_older_paste
 "" ╙───────────────────────────────────────────────────────────────────────────╜
 "" ╓───────────────────────────────────────────────────────────────────────────╖
 """║                  BASED ON NVIM-DEFAULTS AND VIM-SENSIBLE                  ║
     "Settings based on nvim defaults and vim sensible
-    filetype plugin on "Read plugin file for filetype
-    filetype indent on "Read indent file for filetype
-    syntax enable      "Enable Syntax
+    filetype plugin on          "Read plugin file for filetype
+    filetype indent on          "Read indent file for filetype
+    syntax enable               "Enable Syntax
 
     set autoread                "Reread if file has been modified outside of vim
     set complete-=i             "Autocomplete shouldn't scan included files (?)
@@ -176,6 +196,7 @@
     set history=500             "Vim will only save last 500 commands
     set laststatus=2            "Always show status line
     set mouse=a                 "Mouse support in all modes
+    set nocompatible            "Remove settings for vi compatibility
     set sessionoptions-=options "Don't save local settings when making a session
     set tabpagemax=50           "Max number of tab pages to be opened
     set tags=./tags;,tags       "Filenames to be used for tags
@@ -189,11 +210,11 @@
     set autoindent "Automatic copy of indents from previous line
     set backspace=indent,eol,start "<BS> over autoindent, linebreak, and inserts 
     set encoding=utf-8 "Set utf-8 encoding
-    set formatoptions=t  "Autowrap text
-    set formatoptions+=c "Insert comments automatically based on context
-    set formatoptions+=q "Allow <gq>
+    set formatoptions=c "Insert comments automatically based on context
     set formatoptions+=j "Remove comments when joining with <J>
     set formatoptions+=n "Automatically format numbered lists
+    set formatoptions+=q "Allow <gq>
+    " set formatoptions+=t  "Autowrap text
     set nrformats=hex "Use base-16 when adding or subtracting an 0x with <C-A/X>
     set smarttab "Automatically insert spaces instead of tabs at start of line
 """" SEARCH 
@@ -213,6 +234,8 @@
     nnoremap <leader>c :<C-U>execute "set colorcolumn=".(&colorcolumn == "" ? "81" : "")."<bar>hi Colorcolumn ctermbg=darkgrey"<CR><CR>
     " Use <space> to fold and unfold text
     nnoremap <space> za
+    "Write the date
+    nnoremap <leader>d i<C-R>=strftime('%Y-%m-%d')<CR><Esc>
 
     "Use <C-H/J/K/L> to move to associated split in normal mode
     nnoremap <C-H> <C-W><C-H> 
@@ -232,22 +255,25 @@
     tnoremap <C-l> <C-\><C-N><C-w>l
 
     "use :W to overcome permission errors
-    command! W execute 'w !sudo tee % > /dev/null' <bar> edit! 
+    if has('nvim')
+        command! W execute 'w suda://%'
+    else
+        command! W execute 'w !sudo tee % > /dev/null' <bar> edit! 
+    endif
 
     "Command to edit init.vim
     command! Config edit $VIMCONFIG
     "Command to reload init.vim
-    command! Source source $VIMCONFIG
+    command! Source w <bar> source $VIMCONFIG
     "Open a file with user's preferred program
     command! Open !xdg-open % 
 """" BUFFER COMMANDS 
-    " Commands involving buffers 
-    
     " Close the current buffer
     map <leader>bd :Bclose<cr>:tabclose<cr>gT
-
     " Close all the buffers
     map <leader>ba :bufdo bd<cr>
+    " Close all other buffers
+    map <leader>bo :<C-U>wa<bar>%bd<bar>e#<cr><cr>
 
     map <leader>l :bnext<cr>
     map <leader>h :bprevious<cr>
@@ -379,3 +405,4 @@
 "" vim:foldmethod=expr
 "" vim:foldlevel=0
 "" vim:foldexpr=getline(v\:lnum)=~'^""'?'>'.(matchend(getline(v\:lnum),'""*')-2)\:'='
+"" vim:foldtext=VimFoldText()
