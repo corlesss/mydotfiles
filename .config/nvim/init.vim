@@ -44,9 +44,12 @@
     Plug 'michaeljsmith/vim-indent-object' "Select indendation-based text object
     Plug 'terryma/vim-expand-region'       "Repeat command, expand object region
     Plug 'tpope/vim-surround'              "Surround text objects with chars
+"""" PYTHON
+    Plug 'python-mode/python-mode'         "Add python functionality to vim 
 """" SYNTAX
     Plug 'skammer/vim-css-color'           "Provides inline color preview in CSS
     Plug 'hail2u/vim-css3-syntax'          "Provides CSS3 syntax
+    Plug 'numirias/Semshi'                 "Semantic highlighting
     Plug 'dbeniamine/todo.txt-vim'         "Todo.txt syntax and features
 """" TOOLS 
     Plug 'ap/vim-buftabline'               "Shows open buffers in a tabline
@@ -104,17 +107,6 @@
     nmap 8<leader> <Plug>BufTabLine.Go(8)
     nmap 9<leader> <Plug>BufTabLine.Go(9)
     nmap 0<leader> <Plug>BufTabLine.Go(10)
-"""" CALENDAR OPTIONS
-    "Add credentials to plugin
-    source ~/.cache/calendar.vim/credentials.vim 
-
-    " Select calendar views
-    let g:calendar_views=['year', 'month', 'week', 'day_3', 'day', 'agenda', 'clock']
-    let g:calendar_google_calendar = 1    "Enable access to google calendar
-    let g:calendar_google_task = 1        "Enable access to google tasks
-    let g:calendar_task = 1               "Automatically show task list
-    let g:calendar_date_full_month_name=1 "Months are written in full rather #'s
-    let g:calendar_clock_12hour=1         "Show time in 12-hour format
 """" CLOSETAG OPTIONS 
     let g:closetag_filenames = '*.html,*.xhtml,*.phtml' "Filenames that use tags
     let g:closetag_xhtml_filenames = '*.xhtml,*.jsx' "Files with non-closing tag

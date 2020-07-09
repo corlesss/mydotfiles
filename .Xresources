@@ -1,5 +1,5 @@
-URxvt.font: xft:BlexMono Nerd Font Mono:style=Text:size=11:antialias=true:hinting=true
-URxvt.boldFont: xft:BlexMono Nerd Font Mono:style=Bold:size=11:antialias=true:hinting=true
+URxvt.font: xft:iMWritingMonoS Nerd Font:style=Regular:size=12:antialias=true:hinting=true
+URxvt.boldFont: xft:iMWritingMonoS Nerd Font:style=Bold:size=12:antialias=true:hinting=true
 Urxvt.letterSpace: -1
 !URxvt.boldFont: -*-envypn-*-*-*-*-*-*-*-*-*-*-*-*
 URxvt*scrollBar: false

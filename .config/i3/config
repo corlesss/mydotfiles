@@ -10,7 +10,7 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!  
 # exec_always wal -R --vte
 # exec wal -R
-set $mod Mod1
+set $mod Mod4
 for_window [class="^.*"] border pixel 8
 
 # Font for window titles. Will also be used by the bar unless a different font

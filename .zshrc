@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-  export ZSH="/home/lappy486/.oh-my-zsh"
+  export ZSH="/home/compy386/.oh-my-zsh/"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -101,5 +101,6 @@ alias i3config='vim ~/.config/i3/config'
 
 alias vi='/bin/nvim'
 alias vim='/bin/nvim'
-alias calendar='nvim +"Calendar"'
-alias td='todo-txt'
+
+export PATH="$HOME/.local/bin:$PATH"
+exec xmodmap ~/.xmodmap
